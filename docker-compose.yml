@@ -1,0 +1,27 @@
+version: "3.7"
+
+services:
+    gui:
+        image: yourimagename/gui
+        build:
+            context: gui/
+        ports:
+        - 8080:8080
+    lex:
+        image: yourimagename/lex
+        build:
+            context: lex
+        ports:
+        - 5000:5000
+
+# from your apps you can reach Redis IP with its fqdn "redis"
+    redis:
+        image: redis:alpine
+        restart: always
+        volumes:
+            - redis_data:/data
+        ports:
+            - 6379:6379
+
+volumes:
+    redis_data: {}
