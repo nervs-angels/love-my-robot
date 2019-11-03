@@ -15,3 +15,6 @@ coverage.xml
 *,cover
 *.log
 .git
+
+Dockerfile
+README.md
