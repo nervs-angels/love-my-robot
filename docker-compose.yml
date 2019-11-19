@@ -2,17 +2,21 @@ version: "3.7"
 
 services:
     gui:
-        image: yourimagename/gui
+        image: love-my-robot/gui
         build:
-            context: gui/
+            context: ./gui/
         ports:
-        - 8080:8080
+            - 8080:8080
+        depends_on:
+            - redis
     lex:
-        image: yourimagename/lex
+        image: love-my-robot/lex
         build:
-            context: lex
+            context: ./lex/
         ports:
-        - 5000:5000
+            - 5000:5000
+        depends_on:
+            - redis
 
 # from your apps you can reach Redis IP with its fqdn "redis"
     redis:
