@@ -1,11 +1,10 @@
-sudo: 
- - required 
+sudo: required 
 
 services:
  - docker
 
 env:
- DOCKER_COMPOSE_VERSION: 1.25.0
+ DOCKER_COMPOSE_VERSION=1.25.0
 
 before_install:
  - sudo apt-get update
@@ -24,7 +23,5 @@ script:
 
 after_script:
  - docker-compose down
-
-after_success:
  - sh push_image_gui.sh
  - sh push_image_lex.sh
