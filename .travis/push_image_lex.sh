@@ -1,5 +1,5 @@
 cd lex
-docker build -t love-my-robot/lex:imagetag .
+docker build -t nervsangels/lex:imagetag .
 echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-docker push love-my-robot/lex:imagetag
+docker push nervsangels/lex:imagetag
 cd ..

@@ -1,5 +1,5 @@
 cd gui
-docker build -t love-my-robot/gui:imagetag .
+docker build -t nervsangels/gui:imagetag .
 echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-docker push love-my-robot/gui:imagetag
+docker push nervsangels/gui:imagetag
 cd ..
