@@ -23,5 +23,5 @@ script:
 
 after_script:
  - docker-compose down
- - sh push_image_gui.sh
- - sh push_image_lex.sh
+ - sh .travis/push_image_gui.sh
+ - sh .travis/push_image_lex.sh
