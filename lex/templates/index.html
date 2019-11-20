@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cabin:700">
     <link rel="stylesheet" href="{{ url_for('static', filename='assets/fonts/font-awesome.min.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/bootstrap/css/termynal.css')}}">
 </head>
 
 <body id="page-top">
@@ -27,7 +28,11 @@
     
     <header class="masthead" style="background-image:url_for('static', filename='assets/img/cozmo-4-2.jpg');">
         <div class="border-dark intro-body">
-            <div class="container" style="background-color: rgba(31,40,51,0);opacity: 0.71;filter: saturate(153%);"></div>
+            <div id="termynal" data-termynal>
+                <span data-ty="input">pip install spaCy</span>
+                <span data-ty="progress"></span>
+                <span data-ty>Successfully installed spacy</span>
+            </div>
         </div>
     </header>
     <div class="map-clean"></div>
@@ -41,6 +46,8 @@
     <script src="{{ url_for('static', filename='assets/js/bs-init.js') }}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
     <script src="{{ url_for('static', filename='assets/js/grayscale.js') }}"></script>
+    
+    <script src="{{ url_for('static', filename='assets/js/termynal.js') }}" data-termynal-container="#termynal"></script>
 </body>
 
 </html>
