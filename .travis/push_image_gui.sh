@@ -1,3 +1,4 @@
+#script for pushing gui image to dockerhub
 cd gui
 docker build -t nervsangels/gui:imagetag .
 echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
