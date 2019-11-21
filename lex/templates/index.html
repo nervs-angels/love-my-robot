@@ -25,7 +25,7 @@
             </div>
         </div>
     </nav>
-    <header class="masthead" style="background-image: url(&quot;assets/img/cozmo-4.jpg&quot;);">
+    <header class="masthead" style="background-image: url(&quot;static/img/cozmo-4.jpg&quot;);">
         <div class="intro-body">
             <div class="container">
                 <div id="termynal" data-termynal>
@@ -36,11 +36,11 @@
         </div>
     </header>
     <div class="map-clean"></div>
-    <script src="{% url_for('static', filename='bootstrap/js/jquery.min.js' %}"></script>
-    <script src="{% url_for('static', filename='bootstrap/js/bootstrap.min.js' %}"></script>
-    <script src="{% url_for('static', filename='bootstrap/js/grayscale.js' %}"></script>
+    <script src="({url_for('static', filename='bootstrap/js/jquery.min.js'})"></script>
+    <script src="{url_for('static', filename='bootstrap/js/bootstrap.min.js'}"></script>
+    <script src="{url_for('static', filename='bootstrap/js/grayscale.js'}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
-    <script src="{% url_for('static', filename='bootstrap/js/termynal.js' %}" data-termynal-container="#termynal"></script>
+    <script src="{url_for('static', filename='bootstrap/js/termynal.js'}" data-termynal-container="#termynal"></script>
 </body>
 
 </html>
