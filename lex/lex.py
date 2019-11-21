@@ -8,11 +8,11 @@ app = Flask(__name__)
 # subscriber = redis.pubsub(ignore_subscribe_messages=True)
 
 
-
 @app.route("/")
 def root():
     # redis.incr('hits')
     # return 'This Compose/Flask demo has been viewed %s time(s).' % redis.get('hits')
+    return 'hola soy grut'
 
 
 @app.route("/lex", methods = ['POST'])
