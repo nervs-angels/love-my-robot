@@ -3,7 +3,8 @@ import os
 
 app = Flask(__name__)
 
-app.static_folder = 'template'
+app.static_folder = 'static'
+app.template_folder= 'templates'
 environment=os.getenv("ENVIRONMENT","development")
 
 @app.route("/")
