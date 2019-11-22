@@ -38,7 +38,7 @@
 {{!--SAY---------------------------------------------------------------------------------------------------------------------------------------------- --}}
             <div class="row" id="SAY" style="height: 50px;display: none;">
                 <div class="col">
-                    <input type="text" style="height: 100%;width: 580px;"></div>
+                    <input type="text" id="sayText" style="height: 100%;width: 580px;"></div>
             </div>
 
 {{!--MATH-------------------------------------------------------------------------------------------------------------------------------------}}
@@ -66,34 +66,41 @@
 
 {{!--COUNT-------------------------------------------------------------------------------------------------------------------------------------}}
             <div class="row" id="COUNT" style="height: 50px;display: none;">
-                <div class="col"><input type="text" style="height: 100%;width: 150px;font-size: xx-large;text-align: center;"></div>
+                <div class="col"><input type="text" id='countText' style="height: 100%;width: 150px;font-size: xx-large;text-align: center;"></div>
             </div>
 
 {{!--MOVE-------------------------------------------------------------------------------------------------------------------------}}
             <div class="row" id="MOVE" style="height: 50px;display: none;">
-                <div class="col" style="max-width: 150px;padding-right: 0px;padding-left: 0px;margin-left: 15px;"><input type="text" style="height: 100%;width: 150px;font-size: xx-large;text-align: center;"></div>
-                <div class="col text-center" style="max-width: 100px;padding-left: 0px;padding-right: 0px;"><label class="col-form-label" style="color: rgb(225,223,230);font-size: x-large;">mm at</label></div>
-                <div class="col" style="max-width: 150px;padding-left: 0px;padding-right: 0px;"><input type="text" style="height: 100%;width: 150px;font-size: xx-large;text-align: center;"></div>
-                <div class="col text-center" style="max-width: 90px;padding-left: 0px;padding-right: 0px;"><label class="col-form-label" style="color: rgb(225,223,230);font-size: x-large;">mm/s</label></div>
+                <div class="col" style="max-width: 150px;padding-right: 0px;padding-left: 0px;margin-left: 15px;">
+                    <input type="text" id="move1" style="height: 100%;width: 150px;font-size: xx-large;text-align: center;">
+                </div>
+                <div class="col text-center" style="max-width: 100px;padding-left: 0px;padding-right: 0px;">
+                    <label class="col-form-label" style="color: rgb(225,223,230);font-size: x-large;">mm at</label>
+                </div>
+                <div class="col" style="max-width: 150px;padding-left: 0px;padding-right: 0px;">
+                    <input type="text" id="move2" style="height: 100%;width: 150px;font-size: xx-large;text-align: center;">
+                </div>
+                <div class="col text-center" style="max-width: 90px;padding-left: 0px;padding-right: 0px;">
+                    <label class="col-form-label" style="color: rgb(225,223,230);font-size: x-large;">mm/s</label>
+                </div>
             </div>
 
 {{!--TURN------------------------------------------------------------------------------------------------------------------------}}
             <div class="row" id="TURN" style="height: 50px;display: none;">
-                <div class="col" style="max-width: 150px;padding-right: 0px;padding-left: 0px;margin-left: 15px;"><input type="text" style="height: 100%;width: 150px;font-size: xx-large;text-align: center;"></div>
-                <div class="col text-center" style="max-width: 100px;padding-left: 0px;padding-right: 0px;"><label class="col-form-label" style="color: rgb(225,223,230);font-size: x-large;">deg at</label></div>
-                <div class="col" style="max-width: 150px;padding-left: 0px;padding-right: 0px;"><input type="text" style="height: 100%;width: 150px;font-size: xx-large;text-align: center;"></div>
-                <div class="col text-center" style="max-width: 90px;padding-left: 0px;padding-right: 0px;"><label class="col-form-label" style="color: rgb(225,223,230);font-size: x-large;">deg/s</label></div>
+                <div class="col" style="max-width: 150px;padding-right: 0px;padding-left: 0px;margin-left: 15px;">
+                    <input type="text" id="turn" style="height: 100%;width: 150px;font-size: xx-large;text-align: center;"></div>
+                <div class="col text-center" style="max-width: 100px;padding-left: 0px;padding-right: 0px;"><label class="col-form-label" style="color: rgb(225,223,230);font-size: x-large;">deg</label></div>
             </div>
 {{!-- LIFT---------------------------------------------------------------------------------------------------------------------------------}}
             <div class="row" id="LIFT" style="height: 50px;display: none;">
-                <div class="col"><input type="text" style="height: 100%;width: 150px;font-size: xx-large;text-align: center;"></div>
+                <div class="col"><input type="text" id="lift" style="height: 100%;width: 150px;font-size: xx-large;text-align: center;"></div>
             </div>
 
 {{!--LIGHTS------------------------------------------------------------------------------------------ --}}
             <div class="row" id="LIGHTS" style="height: 50px;display: none;">
                 <div class="col text-center" style="max-width: 400px;padding-left: 0px;padding-right: 0px;">
                     <div class="dropdown" id="drop-operation">
-                        <button class="btn btn-primary dropdown-toggle text-monospace text-capitalize" id="lightsDropdown" data-toggle="dropdown" aria-expanded="false" style="height: 50px;width: 350px;">Choose ANIMATION</button>
+                        <button class="btn btn-primary dropdown-toggle text-monospace text-capitalize" id="lightsDropdown" data-toggle="dropdown" aria-expanded="false" style="height: 50px;width: 350px;">Choose color</button>
                         <div class="dropdown-menu" role="menu">
                             <a class="dropdown-item" role="presentation" data-action="GREEN" id="option2" data-parent="lightsDropdown">GREEN</a>
                             <a class="dropdown-item" role="presentation" data-action="RED" id="option2" data-parent="lightsDropdown">RED</a>
@@ -108,7 +115,7 @@
             <div class="row" id="ANIMATION" style="height: 50px;display: none;">
                 <div class="col text-center" style="max-width: 400px;padding-left: 0px;padding-right: 0px;">
                     <div class="dropdown" id="drop-operation">
-                        <button class="btn btn-primary dropdown-toggle text-monospace text-capitalize" id="animationDropdown" data-toggle="dropdown" aria-expanded="false" style="height: 50px;width: 350px;">Choose ANIMATION</button>
+                        <button class="btn btn-primary dropdown-toggle text-monospace text-capitalize" id="animationDropdown" data-toggle="dropdown" aria-expanded="false" style="height: 50px;width: 350px;">Choose animation</button>
                         <div class="dropdown-menu" role="menu">
                             <a class="dropdown-item" role="presentation" data-action="FrustratedByFailureMajor" id="option2" data-parent="animationDropdown">FrustratedByFailureMajor</a>
                             <a class="dropdown-item" role="presentation" data-action="AcknowledgeFaceInitPause" id="option2" data-parent="animationDropdown">AcknowledgeFaceInitPause</a>
@@ -122,23 +129,23 @@
         </div>
 
 {{!--CUBE_LIGHT------------------------------------------------------------------------------------------ --}}
-            <div class="row" id="CUBE_LIGHT" style="height: 50px;display: none;">
+            {{!-- <div class="row" id="CUBE_LIGHT" style="height: 50px;display: none;">
                 <div class="col text-center" style="max-width: 400px;padding-left: 0px;padding-right: 0px;">
                     <div class="dropdown" id="drop-operation">
-                        <button class="btn btn-primary dropdown-toggle text-monospace text-capitalize" id="lightsDropdown" data-toggle="dropdown" aria-expanded="false" style="height: 50px;width: 350px;">Choose ANIMATION</button>
+                        <button class="btn btn-primary dropdown-toggle text-monospace text-capitalize" id="cubeLightsDropdown" data-toggle="dropdown" aria-expanded="false" style="height: 50px;width: 350px;">Choose ANIMATION</button>
                         <div class="dropdown-menu" role="menu">
-                            <a class="dropdown-item" role="presentation" data-action="SET_LIGHTS" id="option2" data-parent="lightsDropdown">SET_LIGHTS</a>
-                            <a class="dropdown-item" role="presentation" data-action="LIGHTS_OFF" id="option2" data-parent="lightsDropdown">LIGHTS_OFF</a>
+                            <a class="dropdown-item" role="presentation" data-action="SET_LIGHTS" id="option2" data-parent="cubeLightsDropdown">SET_LIGHTS</a>
+                            <a class="dropdown-item" role="presentation" data-action="LIGHTS_OFF" id="option2" data-parent="cubeLightsDropdown">LIGHTS_OFF</a>
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> --}}
 
 {{!--PICKUP_CUBE/ROLL_CUBE/WHEELIE------------------------------------------------------------------------------------------ --}}
             <div class="row" id="PICKUP" style="height: 50px;display: none;">
                 <div class="col text-center" style="max-width: 400px;padding-left: 0px;padding-right: 0px;">
                     <div class="dropdown" id="drop-operation">
-                        <button class="btn btn-primary dropdown-toggle text-monospace text-capitalize" id="pickupDropdown" data-toggle="dropdown" aria-expanded="false" style="height: 50px;width: 350px;">Choose ANIMATION</button>
+                        <button class="btn btn-primary dropdown-toggle text-monospace text-capitalize" id="pickupDropdown" data-toggle="dropdown" aria-expanded="false" style="height: 50px;width: 350px;">Choose cube</button>
                         <div class="dropdown-menu" role="menu">
                             <a class="dropdown-item" role="presentation" data-action="1" id="option2" data-parent="pickupDropdown">1</a>
                             <a class="dropdown-item" role="presentation" data-action="2" id="option2" data-parent="pickupDropdown">2</a>
@@ -164,7 +171,7 @@
             \{{#each commandos}}
             <div class="border rounded shadow d-lg-flex justify-content-lg-end align-items-lg-center" style="width: 660px;background-color: rgb(225,223,230);border-radius: 1.8rem!important;height: 50px;padding-left: 25px;padding-right: 20px;margin-bottom: 10px;">
                 <label class="text-monospace d-lg-flex align-items-lg-center" style="min-width: 500px;margin-right: 30px;margin-top: 7px;"> \{{this}}</label>
-                <button class="btn btn-primary d-lg-flex" data-bs-hover-animate="pulse"id="delete" type="button" style="background-color: #C95546;border-color: #C95546;">Delete</button>
+                <button class="btn btn-primary d-lg-flex" data-bs-hover-animate="pulse" id="delete" data-delete=\{{this}} type="button" style="background-color: #C95546;border-color: #C95546;">Delete</button>
             </div>
             \{{/each}}
 

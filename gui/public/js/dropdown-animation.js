@@ -7,7 +7,7 @@ $(document).ready(function(){
 
         updateDropdown($(this).data('action'),$(this).data('parent'))
 
-        
+
         switch(document.getElementById('actionDropdown').innerHTML){
             case "SAY":
                 document.getElementById("MATH").style.display='none';
@@ -17,7 +17,7 @@ $(document).ready(function(){
                 document.getElementById("LIFT").style.display='none';
                 document.getElementById("LIGHTS").style.display='none';
                 document.getElementById("ANIMATION").style.display='none';
-                document.getElementById("CUBE_LIGHT").style.display='none'
+                // document.getElementById("CUBE_LIGHT").style.display='none'
                 document.getElementById("PICKUP").style.display='none'
                 document.getElementById("SAY").style.display='block';
                 break;
@@ -30,7 +30,7 @@ $(document).ready(function(){
                 document.getElementById("LIFT").style.display='none';
                 document.getElementById("LIGHTS").style.display='none';
                 document.getElementById("ANIMATION").style.display='none';
-                document.getElementById("CUBE_LIGHT").style.display='none'
+                // document.getElementById("CUBE_LIGHT").style.display='none'
                 document.getElementById("PICKUP").style.display='none'    
                 document.getElementById("MATH").style.display='block';
                 break;
@@ -43,7 +43,7 @@ $(document).ready(function(){
                 document.getElementById("LIFT").style.display='none';
                 document.getElementById("LIGHTS").style.display='none';
                 document.getElementById("ANIMATION").style.display='none';
-                document.getElementById("CUBE_LIGHT").style.display='none'
+                // document.getElementById("CUBE_LIGHT").style.display='none'
                 document.getElementById("PICKUP").style.display='none'
                 document.getElementById("COUNT").style.display='block';
                 break;
@@ -56,7 +56,7 @@ $(document).ready(function(){
                 document.getElementById("LIFT").style.display='none';
                 document.getElementById("LIGHTS").style.display='none';
                 document.getElementById("ANIMATION").style.display='none';
-                document.getElementById("CUBE_LIGHT").style.display='none'
+                // document.getElementById("CUBE_LIGHT").style.display='none'
                 document.getElementById("PICKUP").style.display='none'
                 document.getElementById("MOVE").style.display='block';
                 break;
@@ -69,7 +69,7 @@ $(document).ready(function(){
                 document.getElementById("LIFT").style.display='none';
                 document.getElementById("LIGHTS").style.display='none';
                 document.getElementById("ANIMATION").style.display='none';
-                document.getElementById("CUBE_LIGHT").style.display='none'
+                // document.getElementById("CUBE_LIGHT").style.display='none'
                 document.getElementById("PICKUP").style.display='none'
                 document.getElementById("TURN").style.display='block';
                 break;
@@ -82,7 +82,7 @@ $(document).ready(function(){
                 document.getElementById("TURN").style.display='none';
                 document.getElementById("LIGHTS").style.display='none';
                 document.getElementById("ANIMATION").style.display='none';
-                document.getElementById("CUBE_LIGHT").style.display='none'
+                // document.getElementById("CUBE_LIGHT").style.display='none'
                 document.getElementById("PICKUP").style.display='none'
                 document.getElementById("LIFT").style.display='block';
                 break;
@@ -95,7 +95,7 @@ $(document).ready(function(){
                 document.getElementById("TURN").style.display='none';
                 document.getElementById("LIFT").style.display='none';
                 document.getElementById("ANIMATION").style.display='none';
-                document.getElementById("CUBE_LIGHT").style.display='none'
+                // document.getElementById("CUBE_LIGHT").style.display='none'
                 document.getElementById("PICKUP").style.display='none'
                 document.getElementById("LIGHTS").style.display='block';
                 break;
@@ -108,61 +108,61 @@ $(document).ready(function(){
                 document.getElementById("TURN").style.display='none';
                 document.getElementById("LIFT").style.display='none';
                 document.getElementById("LIGHTS").style.display='none';
-                document.getElementById("CUBE_LIGHT").style.display='none'
+                // document.getElementById("CUBE_LIGHT").style.display='none'
                 document.getElementById("PICKUP").style.display='none'
                 document.getElementById("ANIMATION").style.display='block';
                 break;
             
-            case "CUBE_LIGHT":
-                document.getElementById("SAY").style.display='none';
-                document.getElementById("MATH").style.display='none';
-                document.getElementById("COUNT").style.display='none';
-                document.getElementById("MOVE").style.display='none';
-                document.getElementById("TURN").style.display='none';
-                document.getElementById("LIFT").style.display='none';
-                document.getElementById("LIGHTS").style.display='none';
-                document.getElementById("ANIMATION").style.display='none';
-                document.getElementById("PICKUP").style.display='none'
-                document.getElementById("CUBE_LIGHT").style.display='block'
-                break;
+            // case "CUBE_LIGHT":
+            //     document.getElementById("SAY").style.display='none';
+            //     document.getElementById("MATH").style.display='none';
+            //     document.getElementById("COUNT").style.display='none';
+            //     document.getElementById("MOVE").style.display='none';
+            //     document.getElementById("TURN").style.display='none';
+            //     document.getElementById("LIFT").style.display='none';
+            //     document.getElementById("LIGHTS").style.display='none';
+            //     document.getElementById("ANIMATION").style.display='none';
+            //     document.getElementById("PICKUP").style.display='none'
+            //     document.getElementById("CUBE_LIGHT").style.display='block'
+            //     break;
             
-            case "PICKUP":
-                document.getElementById("SAY").style.display='none';
-                document.getElementById("MATH").style.display='none';
-                document.getElementById("COUNT").style.display='none';
-                document.getElementById("MOVE").style.display='none';
-                document.getElementById("TURN").style.display='none';
-                document.getElementById("LIFT").style.display='none';
-                document.getElementById("LIGHTS").style.display='none';
-                document.getElementById("ANIMATION").style.display='none';
-                document.getElementById("CUBE_LIGHT").style.display='none'
-                document.getElementById("PICKUP").style.display='block'
-                break;
-            case "ROLL_CUBE":
-                document.getElementById("SAY").style.display='none';
-                document.getElementById("MATH").style.display='none';
-                document.getElementById("COUNT").style.display='none';
-                document.getElementById("MOVE").style.display='none';
-                document.getElementById("TURN").style.display='none';
-                document.getElementById("LIFT").style.display='none';
-                document.getElementById("LIGHTS").style.display='none';
-                document.getElementById("ANIMATION").style.display='none';
-                document.getElementById("CUBE_LIGHT").style.display='none'
-                document.getElementById("PICKUP").style.display='block'
-                break;
+            // case "PICKUP_CUBE":
+            //     document.getElementById("SAY").style.display='none';
+            //     document.getElementById("MATH").style.display='none';
+            //     document.getElementById("COUNT").style.display='none';
+            //     document.getElementById("MOVE").style.display='none';
+            //     document.getElementById("TURN").style.display='none';
+            //     document.getElementById("LIFT").style.display='none';
+            //     document.getElementById("LIGHTS").style.display='none';
+            //     document.getElementById("ANIMATION").style.display='none';
+            //     // document.getElementById("CUBE_LIGHT").style.display='none'
+            //     document.getElementById("PICKUP").style.display='block'
+            //     break;
+            // case "ROLL_CUBE":
+            //     document.getElementById("SAY").style.display='none';
+            //     document.getElementById("MATH").style.display='none';
+            //     document.getElementById("COUNT").style.display='none';
+            //     document.getElementById("MOVE").style.display='none';
+            //     document.getElementById("TURN").style.display='none';
+            //     document.getElementById("LIFT").style.display='none';
+            //     document.getElementById("LIGHTS").style.display='none';
+            //     document.getElementById("ANIMATION").style.display='none';
+            //     // document.getElementById("CUBE_LIGHT").style.display='none'
+            //     document.getElementById("PICKUP").style.display='block'
+            //     break;
             
-            case "WHEELIE":
-                    document.getElementById("SAY").style.display='none';
-                    document.getElementById("MATH").style.display='none';
-                    document.getElementById("COUNT").style.display='none';
-                    document.getElementById("MOVE").style.display='none';
-                    document.getElementById("TURN").style.display='none';
-                    document.getElementById("LIFT").style.display='none';
-                    document.getElementById("LIGHTS").style.display='none';
-                    document.getElementById("ANIMATION").style.display='none';
-                    document.getElementById("CUBE_LIGHT").style.display='none'
-                    document.getElementById("PICKUP").style.display='block'
-                    break;
+            // case "WHEELIE":
+            //         document.getElementById("SAY").style.display='none';
+            //         document.getElementById("MATH").style.display='none';
+            //         document.getElementById("COUNT").style.display='none';
+            //         document.getElementById("MOVE").style.display='none';
+            //         document.getElementById("TURN").style.display='none';
+            //         document.getElementById("LIFT").style.display='none';
+            //         document.getElementById("LIGHTS").style.display='none';
+            //         document.getElementById("ANIMATION").style.display='none';
+            //         // document.getElementById("CUBE_LIGHT").style.display='none'
+            //         document.getElementById("PICKUP").style.display='block'
+            //         break;
             
             default:
                 document.getElementById("SAY").style.display='none';
@@ -173,7 +173,7 @@ $(document).ready(function(){
                 document.getElementById("LIFT").style.display='none';
                 document.getElementById("LIGHTS").style.display='none';
                 document.getElementById("ANIMATION").style.display='none';
-                document.getElementById("CUBE_LIGHT").style.display='none'
+                // document.getElementById("CUBE_LIGHT").style.display='none'
                 document.getElementById("PICKUP").style.display='none'
         }
 
