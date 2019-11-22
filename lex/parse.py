@@ -25,10 +25,11 @@ def parselmr(json_data):
     
     return array2
      
-def filename():
-    with open('lex/test.json') as f:
-        data = json.load(f)    
-    request_timestamp=data['request_timestamp']
+def filename(json_data):
+    parsed_json = (json.loads(json_data))
+    ##with open('lex/test.json') as f:
+       ## data = json.load(f)    
+    request_timestamp=parsed_json['request_timestamp']
     request_timestamp="lmr_lex"+request_timestamp+".py"
     request_timestamp=request_timestamp.replace("CST","").replace(":","-").replace(" ",'_')
     request_timestamp=request_timestamp.replace("Sun",'').replace("Mon",'')
@@ -37,12 +38,12 @@ def filename():
 
 def savefile(filename, data):
     
-    filepath = os.path.join('/love-my-robot/lex/transpiled',filename)
-    if not os.path.exists('/love-my-robot/lex/transpiled'):
-        os.makedirs('/love-my-robot/lex/transpiled')
+    filepath = os.path.join('transpiled',filename)
+    if not os.path.exists('transpiled'):
+        os.makedirs('transpiled')
     f = open(filepath, "w")
     f.write(data)
     f.close()
 
-savefile("hola.txt",'hola como estan')
+
 
