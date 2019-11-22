@@ -1,13 +1,15 @@
 import json
 import os.path, os
 
+json={
+    "request_timestamp": "Sun Nov  3 01:42:41 CST 2019",
+    "lmr": ["SAY,HI",
+        "MOVE,50,100"]
+}
 
 def parselmr(json_data):
     
-    parsed_json = (json.loads(json_data))
-    
-    ##with open('lex/test.json') as f:
-        ##data = json.load(f)
+    parsed_json = json_data
     
     array = []
     for i in parsed_json['lmr']:
@@ -17,16 +19,14 @@ def parselmr(json_data):
     j=0     
 
     for i in array:
-        data[j]=i.split(',')
-        array2.append(data[j])
+        parsed_json[j]=i.split(',')
+        array2.append(parsed_json[j])
         j=j+1
     
     return array2
      
 def filename(json_data):
-    parsed_json = (json.loads(json_data))
-    ##with open('lemx/test.json') as f:
-       ## data = json.load(f)    
+    parsed_json = json_data   
     request_timestamp=parsed_json['request_timestamp']
     request_timestamp="lmr_lex"+request_timestamp+".py"
     request_timestamp=request_timestamp.replace("CST","").replace(":","-").replace(" ",'_')
@@ -47,4 +47,5 @@ def savefile(filename, data):
 
 
 
-print(parselmr())
+##print(parselmr(json))
+##print(filename(json))
