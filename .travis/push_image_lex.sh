@@ -1,3 +1,4 @@
+#script for pushing lex image to dockerhub
 cd lex
 docker build -t nervsangels/lex:imagetag .
 echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
