@@ -2,6 +2,7 @@ from flask import Flask, request, jsonify, abort, render_template
 import cozmo
 import inspect
 import importlib
+
 # from redis import Redis
 
 
@@ -207,7 +208,7 @@ print(transpile([['DRIVE_OFF'], ['WHEELIE'], ['ANIMATION', 'DizzyShakeStop']]))
 def root():
     # redis.incr('hits')
     # return 'This Compose/Flask demo has been viewed %s time(s).' % redis.get('hits')
-    return  render_template('index.html')
+    return render_template('index.html')
 
 
 @app.route("/lex", methods=['POST'])
