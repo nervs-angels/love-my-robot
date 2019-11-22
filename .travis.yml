@@ -4,9 +4,11 @@ services:
  - docker
 
 env:
+ #specify docker compose version to update to
  DOCKER_COMPOSE_VERSION=1.25.0
 
 before_install:
+  #update docker compose to previously specified version
  - sudo apt-get update
  - sudo rm /usr/local/bin/docker-compose
  - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
@@ -19,7 +21,7 @@ before_script:
 script:
   #currently runnig dummy tests
  - docker-compose exec lex python tests.py 
-#  - docker-compose exec lex 
+# - docker-compose exec lex 
 
 after_script:
  - docker-compose down
