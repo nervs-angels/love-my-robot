@@ -118,10 +118,10 @@ $(document).ready(function(){
         console.log(commands.request_timestamp)
         console.log(JSON.stringify(commands))
         $.ajax({
-            url: 'http://lex:5000/lex',
-            type: "post",
+            url: 'http://localhost:5000/lex',
+            type: "POST",
             contentType: 'application/json;charset=UTF-8',
-            dataType: "json",
+            dataType: "jsonp",
             data : JSON.stringify(commands),
             success : function(response) {
                 console.log(response);
