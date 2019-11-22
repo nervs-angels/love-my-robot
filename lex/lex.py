@@ -56,11 +56,13 @@ def preprocess(request_body):
 
 def preprocess_ts(request_body):
     request_timestamp = request_body['request_timestamp']
+    year= request_timestamp[-4:] 
+    request_timestamp=request_timestamp[:-4]
     state.ts_display = request_timestamp
     print('preprocess_ts\n' + state.ts_display)
     request_timestamp = "lmr_lex" + request_timestamp + ".py"
+    request_timestamp=request_timestamp.replace("Sun"," "+year).replace("Mon"," "+year).replace("Tue"," "+year).replace("Wed"," "+year).replace("Thu"," "+year).replace("Fri"," "+year).replace("Sat"," "+year)
     request_timestamp = request_timestamp.replace("CST", "").replace(":", "-").replace(" ", '_')
-    request_timestamp = request_timestamp.replace("Sun", '').replace("Mon", '')
     request_timestamp = request_timestamp.replace('Jan', '1').replace("Feb", "2").replace("Mar", "3").replace("Apr",
                                                                                                               "4").replace(
         "May", "5").replace("Jun", "6").replace("Jul", "7").replace("Aug", "8").replace("Sep", "9").replace("Oct",
@@ -68,7 +70,6 @@ def preprocess_ts(request_body):
         "Nov", "11").replace("Dec", "12")
     state.ts_file = request_timestamp
     print(state.ts_file)
-
 
 def preprocess_procedure(request_body):
     array = []
