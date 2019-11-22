@@ -244,14 +244,14 @@ def execute():
         importlib.invalidate_caches()
         # transpiled_module = importlib.import_module(os.path.abspath('transpiled/' + state.ts_file + '.py'))
         cozmo.run_program(transpiled_module.program())
-    except ValueError:
-        print("Oops!  That was no valid number.  Try again...")
+    except ModuleNotFoundError:
+        print('Absolute import failed')
 
 
 print(transpile([['DRIVE_OFF'], ['WHEELIE'], ['ANIMATION', 'DizzyShakeStop']]))
-# preprocess(json_dummy)
-# process()
-# execute()
+preprocess(json_dummy)
+process()
+execute()
 
 # with open ("state.ts_file", "r") as myfile:
 #     data=myfile.readlines()

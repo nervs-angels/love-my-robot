@@ -121,7 +121,7 @@ $(document).ready(function(){
             url: 'http://localhost:5000/lex',
             type: "POST",
             contentType: 'application/json;charset=UTF-8',
-            dataType: "jsonp",
+            dataType: "json",
             data : JSON.stringify(commands),
             success : function(response) {
                 console.log(response);
