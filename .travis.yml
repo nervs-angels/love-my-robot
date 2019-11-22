@@ -20,7 +20,7 @@ before_script:
 
 script:
   #currently runnig dummy tests
- - docker-compose exec lex python tests.py 
+ - docker-compose exec lex python ./tests.py 
 # - docker-compose exec lex 
 
 after_script:
