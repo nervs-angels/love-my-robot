@@ -241,13 +241,17 @@ print(transpile([['DRIVE_OFF'], ['WHEELIE'], ['ANIMATION', 'DizzyShakeStop']]))
 preprocess(json_dummy)
 process()
 execute()
+  
+with open ("state.ts_file", "r") as myfile:
+    data=myfile.readlines()
 
-
+timestamp=str(state.ts_display)
+    
 @app.route("/")
 def root():
     # redis.incr('hits')
     # return 'This Compose/Flask demo has been viewed %s time(s).' % redis.get('hits')
-    return render_template('index.html')
+    return render_template('index.html',data=data,time=timestamp)
 
 
 @app.route("/lex", methods=['POST'])
@@ -268,3 +272,5 @@ def lex():
 if __name__ == "__main__":
     # subscriber.subscribe('request-timestamp')
     app.run(host="0.0.0.0", debug=True)
+    
+
