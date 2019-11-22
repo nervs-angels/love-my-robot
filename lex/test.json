@@ -1,4 +1,5 @@
 {
     "request_timestamp": "Sun Nov  3 01:42:41 CST 2019",
-    "lmr": "SAY,HI\nMOVE,50,100"
+    "lmr": ["SAY,HI",
+        "MOVE,50,100"]
 }
