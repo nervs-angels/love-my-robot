@@ -36,10 +36,10 @@ def program(robot: cozmo.robot.Robot):
     robot.say_text("that's hot!!!").wait_for_completed()
 
 
-cozmo.run_program(program)
-
-transpiled_module = importlib.import_module('.' + state.ts_file, package='transpiled')
-cozmo.run_program(transpiled_module.program_test())
+# cozmo.run_program(program)
+#
+# transpiled_module = importlib.import_module('.' + state.ts_file, package='transpiled')
+# cozmo.run_program(transpiled_module.program_test())
 
 
 def preprocess(request_body):
@@ -61,6 +61,8 @@ def process():
 
 
 def transpile(procedure_array):
+    use_viewer = False
+    drive_off = False
     text = ""
     text += "import cozmo\n\n\ndef program(robot: cozmo.robot.Robot):"
     for command in procedure_array:
@@ -130,7 +132,8 @@ def transpile(procedure_array):
             drive_off = True
         elif command[0] == "MOVE":
             text = "from cozmo.util import distance_mm, speed_mmps\n" + text
-            text += "\n    robot.drive_straight(distance_mm(" + command[1] + "), speed_mmps(" + command[2] + ")).wait_for_completed()"
+            text += "\n    robot.drive_straight(distance_mm(" + command[1] + "), speed_mmps(" + command[
+                2] + ")).wait_for_completed()"
         elif command[0] == "TURN":
             text = "from cozmo.util import degrees\n" + text
             text += "\n    robot.turn_in_place(degrees(" + command[1] + ")).wait_for_completed()"
@@ -195,6 +198,9 @@ def export(text):
 def execute():
     transpiled_module = importlib.import_module('.' + state.ts_file, package='transpiled')
     cozmo.run_program(transpiled_module.program())
+
+
+print(transpile([['DRIVE_OFF'], ['WHEELIE'], ['ANIMATION', 'DizzyShakeStop']]))
 
 
 @app.route("/")
