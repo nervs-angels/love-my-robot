@@ -6,11 +6,12 @@ var commands = {
 
 $(document).ready(function(){
 
+    //necessary code to render the lmr script preview from a template specified in code.handlebars and the data in the commands object declared avobe
     var scriptTemaplate = $("#scriptTemplate").html();
     var compiledScriptTemplate = Handlebars.compile(scriptTemaplate)
     $("#scriptPreview").html(compiledScriptTemplate(commands))
 
-
+    //code for adding code to the lmr script preview
     $(document).on('click', "#btn-add", function(event){
         console.log('add')
         var name= document.getElementById('actionDropdown').innerHTML;
@@ -80,10 +81,12 @@ $(document).ready(function(){
                 commands.lmr.push(comando);        
 
         }
+        //refresh the lmr script preview
         $("#scriptPreview").html(compiledScriptTemplate(commands))
         event.preventDefault();
     });
 
+    //code for deleting elements from the lmr script preview
     $(document).on('click','#delete',function(event){
         console.log('delete')
         console.log($(this).data('delete'))
@@ -96,13 +99,14 @@ $(document).ready(function(){
         event.preventDefault();
     });
 
-
+    //code for clearing the lmr script preview
     $(document).on('click','#btn-clear',function(event){
         commands.lmr = []
         $("#scriptPreview").html(compiledScriptTemplate(commands))
         event.preventDefault();
     });
 
+    //code for sending the lmr code to the lexer
     $(document).on('click', '#btn-execute',function(event){
         var currentdate=new Date()
         commands.request_timestamp= currentdate.getDate() + "/"
@@ -130,17 +134,3 @@ $(document).ready(function(){
     });
 
 });
-
-
-function deleteCommand(){
-
-}
-
-
-
-function reloadCommandes(){
-    var scriptTemaplate = $("#scriptTemplate").html();
-    var compiledScriptTemplate = Handlebars.compile(scriptTemaplate)
-    $("#scriptPreview").html(compiledScriptTemplate(commands))
-    console.log("list")
-}

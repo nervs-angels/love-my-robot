@@ -1,5 +1,6 @@
 $(document).ready(function(){
     
+    //code for changing the option displayed in the main dropdown
     $(document).on('click','#option', function(event){
         console.log('hola')
         console.log($(this).data('action'))
@@ -7,7 +8,7 @@ $(document).ready(function(){
 
         updateDropdown($(this).data('action'),$(this).data('parent'))
 
-
+        //switch for conditional rendering of appropriate secondary dropdown according to the option selected in the main dropdown 
         switch(document.getElementById('actionDropdown').innerHTML){
             case "SAY":
                 document.getElementById("MATH").style.display='none';
@@ -180,7 +181,7 @@ $(document).ready(function(){
         event.preventDefault();
     });
 
-
+    //code for changing the option displayed in the secondary dropdown
     $(document).on('click','#option2', function(event){
         console.log('hola')
         console.log($(this).data('action'))
@@ -190,6 +191,7 @@ $(document).ready(function(){
         event.preventDefault();
     });
     
+    //function for updating the dropdown
     function updateDropdown(action,parent){
         document.getElementById(parent).innerHTML = action
         console.log("success")
