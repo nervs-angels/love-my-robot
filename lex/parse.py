@@ -1,11 +1,14 @@
 import json
 import os.path, os
 
-def parselmr():
-    with open('lex/test.json') as f:
-        data = json.load(f)
+def parselmr(json_data):
     
-    data2= data['lmr'].split('\n')
+    parsed_json = (json.loads(json_data))
+    
+    ##with open('lex/test.json') as f:
+        ##data = json.load(f)
+    
+    data2= parsed_json['lmr'].split('\n')
     print(data2)
     
     array = []
