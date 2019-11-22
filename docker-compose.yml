@@ -7,25 +7,11 @@ services:
             context: ./gui/
         ports:
             - 8080:8080
-        depends_on:
-            - redis
+     
     lex:
         image: love-my-robot/lex
         build:
             context: ./lex/
         ports:
             - 5000:5000
-        depends_on:
-            - redis
-
-# from your apps you can reach Redis IP with its fqdn "redis"
-    redis:
-        image: redis:alpine
-        restart: always
-        volumes:
-            - redis_data:/data
-        ports:
-            - 6379:6379
-
-volumes:
-    redis_data: {}
+   

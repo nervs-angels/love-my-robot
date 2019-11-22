@@ -118,7 +118,7 @@ $(document).ready(function(){
         console.log(commands.request_timestamp)
         console.log(JSON.stringify(commands))
         $.ajax({
-            url: 'http://lex:5000/lex/',
+            url: 'http://lex:5000/lex',
             type: "post",
             contentType: 'application/json;charset=UTF-8',
             dataType: "json",

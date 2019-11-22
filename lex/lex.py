@@ -237,10 +237,10 @@ def execute():
     cozmo.run_program(transpiled_module.program())
 
 
-print(transpile([['DRIVE_OFF'], ['WHEELIE'], ['ANIMATION', 'DizzyShakeStop']]))
-preprocess(json_dummy)
-process()
-execute()
+# print(transpile([['DRIVE_OFF'], ['WHEELIE'], ['ANIMATION', 'DizzyShakeStop']]))
+# preprocess(json_dummy)
+# process()
+# execute()
   
 with open ("state.ts_file", "r") as myfile:
     data=myfile.readlines()
