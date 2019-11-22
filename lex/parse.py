@@ -19,7 +19,6 @@ def parse():
         array2.append(data2[j])
         j=j+1
     
-
-    print(array2[0][0])
+    return array2
     
 parse()    
