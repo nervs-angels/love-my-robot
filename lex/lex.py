@@ -8,7 +8,7 @@ import os
 
 # from redis import Redis
 
-
+importlib.invalidate_caches()
 app = Flask(__name__)
 app.static_folder = 'static'
 app.template_folder = 'templates'
@@ -21,6 +21,7 @@ class State:
         self.ts_file = 'lmr_lex_2019_11_3-11_18'
         self.ts_display = ''
         self.procedure = []
+        self.procedure_display = ''
 
 
 # redis = Redis(host='redis', port=6379)
@@ -56,12 +57,14 @@ def preprocess(request_body):
 
 def preprocess_ts(request_body):
     request_timestamp = request_body['request_timestamp']
-    year= request_timestamp[-4:] 
-    request_timestamp=request_timestamp[:-4]
+    year = request_timestamp[-4:]
+    request_timestamp = request_timestamp[:-4]
     state.ts_display = request_timestamp
     print('preprocess_ts\n' + state.ts_display)
     request_timestamp = "lmr_lex" + request_timestamp + ".py"
-    request_timestamp=request_timestamp.replace("Sun"," "+year).replace("Mon"," "+year).replace("Tue"," "+year).replace("Wed"," "+year).replace("Thu"," "+year).replace("Fri"," "+year).replace("Sat"," "+year)
+    request_timestamp = request_timestamp.replace("Sun", " " + year).replace("Mon", " " + year).replace("Tue",
+                                                                                                        " " + year).replace(
+        "Wed", " " + year).replace("Thu", " " + year).replace("Fri", " " + year).replace("Sat", " " + year)
     request_timestamp = request_timestamp.replace("CST", "").replace(":", "-").replace(" ", '_')
     request_timestamp = request_timestamp.replace('Jan', '1').replace("Feb", "2").replace("Mar", "3").replace("Apr",
                                                                                                               "4").replace(
@@ -70,6 +73,7 @@ def preprocess_ts(request_body):
         "Nov", "11").replace("Dec", "12")
     state.ts_file = request_timestamp
     print(state.ts_file)
+
 
 def preprocess_procedure(request_body):
     array = []
@@ -224,6 +228,7 @@ def transpile(procedure_array):
 
 
 def export(text):
+    state.procedure_display = text
     filepath = os.path.join('transpiled', state.ts_file)
     if not os.path.exists('transpiled'):
         os.makedirs('transpiled')
@@ -233,25 +238,32 @@ def export(text):
 
 
 def execute():
-    transpiled_module = importlib.import_module('.' + state.ts_file, package='transpiled')
-    cozmo.run_program(transpiled_module.program())
+    try:
+        importlib.invalidate_caches()
+        transpiled_module = importlib.import_module('.' + state.ts_file, package='transpiled')
+        importlib.invalidate_caches()
+        # transpiled_module = importlib.import_module(os.path.abspath('transpiled/' + state.ts_file + '.py'))
+        cozmo.run_program(transpiled_module.program())
+    except ValueError:
+        print("Oops!  That was no valid number.  Try again...")
 
 
-# print(transpile([['DRIVE_OFF'], ['WHEELIE'], ['ANIMATION', 'DizzyShakeStop']]))
+print(transpile([['DRIVE_OFF'], ['WHEELIE'], ['ANIMATION', 'DizzyShakeStop']]))
 # preprocess(json_dummy)
 # process()
 # execute()
-  
+
 # with open ("state.ts_file", "r") as myfile:
 #     data=myfile.readlines()
 
-timestamp=str(state.ts_display)
-    
+# timestamp=str(state.ts_display)
+
+
 @app.route("/")
 def root():
     # redis.incr('hits')
     # return 'This Compose/Flask demo has been viewed %s time(s).' % redis.get('hits')
-    return render_template('index.html',data=data,time=timestamp)
+    return render_template('index.html', data=state.procedure_display, time=state.ts_display)
 
 
 @app.route("/lex", methods=['POST'])
@@ -272,5 +284,3 @@ def lex():
 if __name__ == "__main__":
     # subscriber.subscribe('request-timestamp')
     app.run(host="0.0.0.0", debug=True)
-    
-
