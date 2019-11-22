@@ -1,6 +1,7 @@
 var commands = {
     "request_timestamp": '',
-    "lmr" : [ 'SAY,HI','MOVE,50,100']
+    // [ 'SAY,HI','MOVE,50,100'] example of format
+    "lmr" : [ ]
 }
 
 $(document).ready(function(){
@@ -103,13 +104,14 @@ $(document).ready(function(){
     });
 
     $(document).on('click', '#btn-execute',function(event){
-        var commandsText = `${commands}`
+        var commandsText = JSON.stringify(commands)
+        console.log(commandsText)
         $.ajax({
-            url: 'lex/lex',
+            url: 'http://lex:5000/lex/',
             type: "post",
             contentType: 'application/json;charset=UTF-8',
             dataType: "json",
-            data : JSON.parse(commandsText),
+            data : JSON.stringify(commands),
             success : function(response) {
                 console.log(response);
               },
