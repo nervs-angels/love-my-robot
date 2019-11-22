@@ -14,8 +14,19 @@ const app = express();
 //
 app.use(express.static('public'))
 
+hbs = exphbs.create({
+    defaultLayout: 'main',
+
+    //custom helpers
+    helpers: {
+        json: function(obj) {
+            return new Handlebars.SafeString(JSON.stringify(obj))
+         }
+    }
+});
+
 //view engine
-app.engine('handlebars',exphbs({defaultLayout: 'main'}));
+app.engine('handlebars',hbs.engine);
 app.set('view engine', 'handlebars');
 
 //body-parser
@@ -25,6 +36,7 @@ app.use(bodyParser.urlencoded({extended:false}));
 //method-override
 app.use(methodOverride('_method'));
 
+//commands to be sent to LEX
 app.get('/', function(req,res,next){
     res.render('code')
 });
@@ -34,4 +46,6 @@ app.get('/', function(req,res,next){
 app.listen(port,function(){
     console.log(`server started on port ${port}`)
 });
+
+
 

@@ -4,72 +4,158 @@
 
  {{!-- dropdown principal ------------------------------------------------------------------}}
         <div class="col" id="1" style="width: 170px;padding-left: 0px;padding-right: 0px;">
-            <div class="dropdown" id="drop-action"><button class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false" type="button" style="width: 170px;height: 50px;background-color: rgb(33,33,33);border-color: rgb(33,33,33);">Choose option&nbsp;</button>
+
+            <div class="dropdown" id="drop-action">
+            <button class="btn btn-primary dropdown-toggle" id= 'actionDropdown' data-toggle="dropdown" aria-expanded="false" type="button" style="width: 170px;height: 50px;background-color: rgb(33,33,33);border-color: rgb(33,33,33);">Choose option&nbsp;</button>
                 <div class="dropdown-menu"role="menu">
-                    <a class="dropdown-item" role="presentation" href="#">ACTIONS</a>
-                    <a class="dropdown-item" role="presentation" href="#">DRIVE</a>
-                    <a class="dropdown-item" role="presentation" href="#">ANIMATIONS</a>
+                    <a class="dropdown-item" role="presentation" id="option" data-parent="actionDropdown" data-action="SAY">SAY</a>
+                    <a class="dropdown-item" role="presentation" id="option" data-parent="actionDropdown" data-action="MATH">MATH</a>
+                    <a class="dropdown-item" role="presentation" id="option" data-parent="actionDropdown" data-action="COUNT">COUNT</a>
+                    <a class="dropdown-item" role="presentation" id="option" data-parent="actionDropdown" data-action="YES">YES</a>
+                    <a class="dropdown-item" role="presentation" id="option" data-parent="actionDropdown" data-action="SOUND">SOUND</a>
+                    <a class="dropdown-item" role="presentation" id="option" data-parent="actionDropdown" data-action="DRIVE_OFF">DRIVE_OFF</a>
+                    <a class="dropdown-item" role="presentation" id="option" data-parent="actionDropdown" data-action="MOVE">MOVE</a>
+                    <a class="dropdown-item" role="presentation" id="option" data-parent="actionDropdown" data-action="TURN">TURN</a>
+                    <a class="dropdown-item" role="presentation" id="option" data-parent="actionDropdown" data-action="LIFT">LIFT</a>
+                    <a class="dropdown-item" role="presentation" id="option" data-parent="actionDropdown" data-action="LIGHTS">LIGHTS</a>
+                    <a class="dropdown-item" role="presentation" id="option" data-parent="actionDropdown" data-action="ANIMATION">ANIMATION</a>
+                    <a class="dropdown-item" role="presentation" id="option" data-parent="actionDropdown" data-action="CUBE_LIGHT">CUBE_LIGHT</a>
+                    <a class="dropdown-item" role="presentation" id="option" data-parent="actionDropdown" data-action="PICKUP_CUBE">PICKUP_CUBE</a>
+                    <a class="dropdown-item" role="presentation" id="option" data-parent="actionDropdown" data-action="DROP_CUBE">DROP_CUBE</a>
+                    <a class="dropdown-item" role="presentation" id="option" data-parent="actionDropdown" data-action="ROLL_CUBE">ROLL_CUBE</a>
+                    <a class="dropdown-item" role="presentation" id="option" data-parent="actionDropdown" data-action="WHEELIE">WHEELIE</a>
                 </div>
             </div>
+
+
+
+
         </div>
-{{!-------------------------------------------------------------------------------------------}}
+{{!----------------------------------------------------------------------------------------------------------------------------------------}}
 
         <div class="col text-left" id="2" style="min-width: 610px;">
 
-
-            <div class="row" id="params-1" style="height: 50px;display: none;">
-                <div class="col"><input type="text" style="height: 100%;width: 580px;"></div>
+{{!--SAY---------------------------------------------------------------------------------------------------------------------------------------------- --}}
+            <div class="row" id="SAY" style="height: 50px;display: none;">
+                <div class="col">
+                    <input type="text" id="sayText" style="height: 100%;width: 580px;"></div>
             </div>
 
+{{!--MATH-------------------------------------------------------------------------------------------------------------------------------------}}
+                
+            <div class="row" id="MATH" style="height: 50px;display: none;">
+                <div class="col-md-5" style="max-width: 150px;padding-right: 0px;padding-left: 0px;margin-left: 15px;">
+                    <input type="text" id="op-1" style="height: 100%;width: 150px;font-size: xx-large;text-align: center;">
+                </div>
+                <div class="col-md-2 text-center" style="max-width: 100px;padding-left: 0px;padding-right: 0px;">
+                    <div class="dropdown" id="drop-operation">
+                        <button class="btn btn-primary dropdown-toggle" id= 'mathDropdown'data-toggle="dropdown" aria-expanded="false" style="height: 50px;width: 50px;"></button>
 
-            <div class="row" id="params-2" style="height: 50px;display: none;">
-                <div class="col"><input type="text" style="height: 100%;width: 150px;font-size: xx-large;text-align: center;"></div>
-            </div>
-
-{{!-- action move -------------------------------------------------------------------------------------------------------------------------}}
-            <div class="row" id="params-3" style="height: 50px;display: none;">
-                <div class="col" style="max-width: 150px;padding-right: 0px;padding-left: 0px;margin-left: 15px;"><input type="text" style="height: 100%;width: 150px;font-size: xx-large;text-align: center;"></div>
-                <div class="col text-center" style="max-width: 100px;padding-left: 0px;padding-right: 0px;"><label class="col-form-label" style="color: rgb(225,223,230);font-size: x-large;">mm at</label></div>
-                <div class="col" style="max-width: 150px;padding-left: 0px;padding-right: 0px;"><input type="text" style="height: 100%;width: 150px;font-size: xx-large;text-align: center;"></div>
-                <div class="col text-center" style="max-width: 90px;padding-left: 0px;padding-right: 0px;"><label class="col-form-label" style="color: rgb(225,223,230);font-size: x-large;">mm/s</label></div>
-            </div>
-
-{{!-- action turn ------------------------------------------------------------------------------------------------------------------------}}
-            <div class="row" id="params-4" style="height: 50px;display: none;">
-                <div class="col" style="max-width: 150px;padding-right: 0px;padding-left: 0px;margin-left: 15px;"><input type="text" style="height: 100%;width: 150px;font-size: xx-large;text-align: center;"></div>
-                <div class="col text-center" style="max-width: 100px;padding-left: 0px;padding-right: 0px;"><label class="col-form-label" style="color: rgb(225,223,230);font-size: x-large;">deg at</label></div>
-                <div class="col" style="max-width: 150px;padding-left: 0px;padding-right: 0px;"><input type="text" style="height: 100%;width: 150px;font-size: xx-large;text-align: center;"></div>
-                <div class="col text-center" style="max-width: 90px;padding-left: 0px;padding-right: 0px;"><label class="col-form-label" style="color: rgb(225,223,230);font-size: x-large;">deg/s</label></div>
-            </div>
-{{!-- -------------------------------------------------------------------------------------------------------------------------------------}}
-            <div class="row" id="params-5" style="height: 50px;display: none;">
-                <div class="col" style="max-width: 150px;padding-right: 0px;padding-left: 0px;margin-left: 15px;"><input type="text" id="op-1" style="height: 100%;width: 150px;font-size: xx-large;text-align: center;"></div>
-                <div class="col text-center" style="max-width: 100px;padding-left: 0px;padding-right: 0px;">
-                    <div class="dropdown" id="drop-operation"><button class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false" style="height: 50px;width: 50px;"></button>
                         <div class="dropdown-menu" role="menu">
-                            <a class="dropdown-item" role="presentation" href="#">First Item</a>
-                            <a class="dropdown-item" role="presentation" href="#">Second Item</a>
-                            <a class="dropdown-item" role="presentation" href="#">Third Item</a>
+                            <a class="dropdown-item" role="presentation" data-action="+" id="option2" data-parent="mathDropdown">+</a>
+                            <a class="dropdown-item" role="presentation" data-action="-" id="option2" data-parent="mathDropdown">-</a>
+                            <a class="dropdown-item" role="presentation" data-action="*" id="option2" data-parent="mathDropdown">*</a>
+                            <a class="dropdown-item" role="presentation" data-action="/" id="option2" data-parent="mathDropdown">/</a>
                         </div>
                     </div>
                 </div>
-                <div class="col" style="max-width: 150px;padding-left: 0px;padding-right: 0px;"><input type="text" id="op-2" style="height: 100%;width: 150px;font-size: xx-large;text-align: center;"></div>
+                <div class="col-md-5" style="max-width: 150px;padding-left: 0px;padding-right: 0px;">
+                    <input type="text" id="op-2" style="height: 100%;width: 150px;font-size: xx-large;text-align: center;">
+                </div>
             </div>
-{{!-- animation dropdown ------------------------------------------------------------------------------------------ --}}
-            <div class="row" id="params-6" style="height: 50px;">
+
+{{!--COUNT-------------------------------------------------------------------------------------------------------------------------------------}}
+            <div class="row" id="COUNT" style="height: 50px;display: none;">
+                <div class="col"><input type="text" id='countText' style="height: 100%;width: 150px;font-size: xx-large;text-align: center;"></div>
+            </div>
+
+{{!--MOVE-------------------------------------------------------------------------------------------------------------------------}}
+            <div class="row" id="MOVE" style="height: 50px;display: none;">
+                <div class="col" style="max-width: 150px;padding-right: 0px;padding-left: 0px;margin-left: 15px;">
+                    <input type="text" id="move1" style="height: 100%;width: 150px;font-size: xx-large;text-align: center;">
+                </div>
+                <div class="col text-center" style="max-width: 100px;padding-left: 0px;padding-right: 0px;">
+                    <label class="col-form-label" style="color: rgb(225,223,230);font-size: x-large;">mm at</label>
+                </div>
+                <div class="col" style="max-width: 150px;padding-left: 0px;padding-right: 0px;">
+                    <input type="text" id="move2" style="height: 100%;width: 150px;font-size: xx-large;text-align: center;">
+                </div>
+                <div class="col text-center" style="max-width: 90px;padding-left: 0px;padding-right: 0px;">
+                    <label class="col-form-label" style="color: rgb(225,223,230);font-size: x-large;">mm/s</label>
+                </div>
+            </div>
+
+{{!--TURN------------------------------------------------------------------------------------------------------------------------}}
+            <div class="row" id="TURN" style="height: 50px;display: none;">
+                <div class="col" style="max-width: 150px;padding-right: 0px;padding-left: 0px;margin-left: 15px;">
+                    <input type="text" id="turn" style="height: 100%;width: 150px;font-size: xx-large;text-align: center;"></div>
+                <div class="col text-center" style="max-width: 100px;padding-left: 0px;padding-right: 0px;"><label class="col-form-label" style="color: rgb(225,223,230);font-size: x-large;">deg</label></div>
+            </div>
+{{!-- LIFT---------------------------------------------------------------------------------------------------------------------------------}}
+            <div class="row" id="LIFT" style="height: 50px;display: none;">
+                <div class="col"><input type="text" id="lift" style="height: 100%;width: 150px;font-size: xx-large;text-align: center;"></div>
+            </div>
+
+{{!--LIGHTS------------------------------------------------------------------------------------------ --}}
+            <div class="row" id="LIGHTS" style="height: 50px;display: none;">
                 <div class="col text-center" style="max-width: 400px;padding-left: 0px;padding-right: 0px;">
-                    <div class="dropdown" id="drop-operation"><button class="btn btn-primary dropdown-toggle text-monospace text-capitalize" data-toggle="dropdown" aria-expanded="false" style="height: 50px;width: 350px;">Choose ANIMATION</button>
+                    <div class="dropdown" id="drop-operation">
+                        <button class="btn btn-primary dropdown-toggle text-monospace text-capitalize" id="lightsDropdown" data-toggle="dropdown" aria-expanded="false" style="height: 50px;width: 350px;">Choose color</button>
                         <div class="dropdown-menu" role="menu">
-                            <a class="dropdown-item" role="presentation" href="#">FrustratedByFailureMajor</a>
-                            <a class="dropdown-item" role="presentation" href="#">AcknowledgeFaceInitPause</a>
-                            <a class="dropdown-item" role="presentation" href="#">CodeLabCow</a>
-                            <a class="dropdown-item" role="presentation" href="#">DizzyShakeStop</a>
-                            <a class="dropdown-item" role="presentation" href="#">DriveLoopAngry</a>
+                            <a class="dropdown-item" role="presentation" data-action="GREEN" id="option2" data-parent="lightsDropdown">GREEN</a>
+                            <a class="dropdown-item" role="presentation" data-action="RED" id="option2" data-parent="lightsDropdown">RED</a>
+                            <a class="dropdown-item" role="presentation" data-action="BLUE" id="option2" data-parent="lightsDropdown">BLUE</a>
+                            <a class="dropdown-item" role="presentation" data-action="WHITE" id="option2" data-parent="lightsDropdown">WHITE</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+{{!--ANIMATION------------------------------------------------------------------------------------------ --}}
+            <div class="row" id="ANIMATION" style="height: 50px;display: none;">
+                <div class="col text-center" style="max-width: 400px;padding-left: 0px;padding-right: 0px;">
+                    <div class="dropdown" id="drop-operation">
+                        <button class="btn btn-primary dropdown-toggle text-monospace text-capitalize" id="animationDropdown" data-toggle="dropdown" aria-expanded="false" style="height: 50px;width: 350px;">Choose animation</button>
+                        <div class="dropdown-menu" role="menu">
+                            <a class="dropdown-item" role="presentation" data-action="FrustratedByFailureMajor" id="option2" data-parent="animationDropdown">FrustratedByFailureMajor</a>
+                            <a class="dropdown-item" role="presentation" data-action="AcknowledgeFaceInitPause" id="option2" data-parent="animationDropdown">AcknowledgeFaceInitPause</a>
+                            <a class="dropdown-item" role="presentation" data-action="CodeLabCow" id="option2" data-parent="animationDropdown">CodeLabCow</a>
+                            <a class="dropdown-item" role="presentation" data-action="DizzyShakeStop" id="option2" data-parent="animationDropdown">DizzyShakeStop</a>
+                            <a class="dropdown-item" role="presentation" data-action="DriveLoopAngry" id="option2" data-parent="animationDropdown">DriveLoopAngry</a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+
+{{!--CUBE_LIGHT------------------------------------------------------------------------------------------ --}}
+            {{!-- <div class="row" id="CUBE_LIGHT" style="height: 50px;display: none;">
+                <div class="col text-center" style="max-width: 400px;padding-left: 0px;padding-right: 0px;">
+                    <div class="dropdown" id="drop-operation">
+                        <button class="btn btn-primary dropdown-toggle text-monospace text-capitalize" id="cubeLightsDropdown" data-toggle="dropdown" aria-expanded="false" style="height: 50px;width: 350px;">Choose ANIMATION</button>
+                        <div class="dropdown-menu" role="menu">
+                            <a class="dropdown-item" role="presentation" data-action="SET_LIGHTS" id="option2" data-parent="cubeLightsDropdown">SET_LIGHTS</a>
+                            <a class="dropdown-item" role="presentation" data-action="LIGHTS_OFF" id="option2" data-parent="cubeLightsDropdown">LIGHTS_OFF</a>
+                        </div>
+                    </div>
+                </div>
+            </div> --}}
+
+{{!--PICKUP_CUBE/ROLL_CUBE/WHEELIE------------------------------------------------------------------------------------------ --}}
+            <div class="row" id="PICKUP" style="height: 50px;display: none;">
+                <div class="col text-center" style="max-width: 400px;padding-left: 0px;padding-right: 0px;">
+                    <div class="dropdown" id="drop-operation">
+                        <button class="btn btn-primary dropdown-toggle text-monospace text-capitalize" id="pickupDropdown" data-toggle="dropdown" aria-expanded="false" style="height: 50px;width: 350px;">Choose cube</button>
+                        <div class="dropdown-menu" role="menu">
+                            <a class="dropdown-item" role="presentation" data-action="1" id="option2" data-parent="pickupDropdown">1</a>
+                            <a class="dropdown-item" role="presentation" data-action="2" id="option2" data-parent="pickupDropdown">2</a>
+                            <a class="dropdown-item" role="presentation" data-action="3" id="option2" data-parent="pickupDropdown">3</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
 {{!-- add button --------------------------------------------------------------------------------------- --}}
         <div class="col" id="3" style="width: 120px;padding-left: 0px;padding-right: 0px;"><button class="btn btn-primary" data-bs-hover-animate="pulse" id="btn-add" type="button" style="background-color: rgb(33,33,33);border-color: rgb(33,33,33);width: 120px;height: 50px;">Add&nbsp;➕</button></div>
     </div>
@@ -78,21 +164,24 @@
 
 
 
-<div class="container d-lg-flex justify-content-center" id="script-preview" style="height: 50px;min-width: 700px;margin-top: 40px;max-width: 700px;min-height: 300px;max-height: 300px;background-color: rgb(33,33,33);padding: 20px;overflow-y: scroll;">
+<div class="container d-lg-flex justify-content-center" id="scriptPreview" style="height: 50px;min-width: 700px;margin-top: 40px;max-width: 700px;min-height: 300px;max-height: 300px;background-color: rgb(33,33,33);padding: 20px;overflow-y: scroll;">
     <div>
-        <div class="border rounded shadow d-lg-flex justify-content-lg-end align-items-lg-center" style="width: 660px;background-color: rgb(225,223,230);border-radius: 1.8rem!important;height: 50px;padding-left: 25px;padding-right: 20px;margin-bottom: 10px;"><label class="text-monospace d-lg-flex align-items-lg-center" style="min-width: 500px;margin-right: 30px;margin-top: 7px;">ANIMATION&nbsp;<strong>FrustratedByFailureMajor</strong></label><button class="btn btn-primary d-lg-flex" data-bs-hover-animate="pulse"
-                id="delete" type="button" style="background-color: #C95546;border-color: #C95546;">Delete</button></div>
-        <div class="border rounded shadow d-lg-flex justify-content-lg-end align-items-lg-center" style="width: 660px;background-color: rgb(225,223,230);border-radius: 1.8rem!important;height: 50px;padding-left: 25px;padding-right: 20px;margin-bottom: 10px;"><label class="text-monospace d-lg-flex align-items-lg-center" style="min-width: 500px;margin-right: 30px;margin-top: 7px;">ANIMATION&nbsp;<strong>FrustratedByFailureMajor</strong></label><button class="btn btn-primary d-lg-flex" data-bs-hover-animate="pulse"
-                id="delete" type="button" style="background-color: #C95546;border-color: #C95546;">Delete</button></div>
-        <div class="border rounded shadow d-lg-flex justify-content-lg-end align-items-lg-center" style="width: 660px;background-color: rgb(225,223,230);border-radius: 1.8rem!important;height: 50px;padding-left: 25px;padding-right: 20px;margin-bottom: 10px;"><label class="text-monospace d-lg-flex align-items-lg-center" style="min-width: 500px;margin-right: 30px;margin-top: 7px;">ANIMATION&nbsp;<strong>FrustratedByFailureMajor</strong></label><button class="btn btn-primary d-lg-flex" data-bs-hover-animate="pulse"
-                id="delete" type="button" style="background-color: #C95546;border-color: #C95546;">Delete</button></div>
-        <div class="border rounded shadow d-lg-flex justify-content-lg-end align-items-lg-center" style="width: 660px;background-color: rgb(225,223,230);border-radius: 1.8rem!important;height: 50px;padding-left: 25px;padding-right: 20px;margin-bottom: 10px;"><label class="text-monospace d-lg-flex align-items-lg-center" style="min-width: 500px;margin-right: 30px;margin-top: 7px;">ANIMATION&nbsp;<strong>FrustratedByFailureMajor</strong></label><button class="btn btn-primary d-lg-flex" data-bs-hover-animate="pulse"
-                id="delete" type="button" style="background-color: #C95546;border-color: #C95546;">Delete</button></div>
-        <div class="border rounded shadow d-lg-flex justify-content-lg-end align-items-lg-center" style="width: 660px;background-color: rgb(225,223,230);border-radius: 1.8rem!important;height: 50px;padding-left: 25px;padding-right: 20px;margin-bottom: 10px;"><label class="text-monospace d-lg-flex align-items-lg-center" style="min-width: 500px;margin-right: 30px;margin-top: 7px;">ANIMATION&nbsp;<strong>FrustratedByFailureMajor</strong></label><button class="btn btn-primary d-lg-flex" data-bs-hover-animate="pulse"
-                id="delete" type="button" style="background-color: #C95546;border-color: #C95546;">Delete</button></div>
-        <div class="border rounded shadow d-lg-flex justify-content-lg-end align-items-lg-center" style="width: 660px;background-color: rgb(225,223,230);border-radius: 1.8rem!important;height: 50px;padding-left: 25px;padding-right: 20px;margin-bottom: 10px;"><label class="text-monospace d-lg-flex align-items-lg-center" style="min-width: 500px;margin-right: 30px;margin-top: 7px;">ANIMATION&nbsp;<strong>FrustratedByFailureMajor</strong></label><button class="btn btn-primary d-lg-flex" data-bs-hover-animate="pulse"
-                id="delete" type="button" style="background-color: #C95546;border-color: #C95546;">Delete</button></div>
+
+        <script id="scriptTemplate" type="text/x-handlebars-template">
+            \{{#each lmr}}
+            <div class="border rounded shadow d-lg-flex justify-content-lg-end align-items-lg-center" style="width: 660px;background-color: rgb(225,223,230);border-radius: 1.8rem!important;height: 50px;padding-left: 25px;padding-right: 20px;margin-bottom: 10px;">
+                <label class="text-monospace d-lg-flex align-items-lg-center" style="min-width: 500px;margin-right: 30px;margin-top: 7px;"> \{{this}}</label>
+                <button class="btn btn-primary d-lg-flex" data-bs-hover-animate="pulse" id="delete" data-delete=\{{this}} type="button" style="background-color: #C95546;border-color: #C95546;">Delete</button>
+            </div>
+            \{{/each}}
+
+        </script>
+
     </div>
 </div>
-<div class="container" id="buttons" style="width: 350px;padding: 0;margin-top: 40px;"><button class="btn btn-primary" data-bs-hover-animate="pulse" id="btn-clear" type="button" style="background-color: #C95546;border-color: #C95546;width: 150px;height: 50px;">Clear</button><button class="btn btn-primary" data-bs-hover-animate="pulse"
-        id="btn-execute" type="button" style="background-color: #32965D;border-color: #32965D;width: 150px;height: 50px;margin-left: 20px;">Execute</button></div>
+
+<div class="container" id="buttons" style="width: 350px;padding: 0;margin-top: 40px;">
+    <button class="btn btn-primary" data-bs-hover-animate="pulse" id="btn-clear" type="button" style="background-color: #C95546;border-color: #C95546;width: 150px;height: 50px;">Clear</button>
+    <button class="btn btn-primary" data-bs-hover-animate="pulse" id="btn-execute" type="button" style="background-color: #32965D;border-color: #32965D;width: 150px;height: 50px;margin-left: 20px;">Execute</button>
+</div>
+
