@@ -1,3 +1,3 @@
 flask==1.1.1
 redis==3.3.11
-request
+cozmo==1.4.10
