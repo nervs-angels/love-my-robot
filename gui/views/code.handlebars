@@ -50,6 +50,7 @@
                 <div class="col-md-2 text-center" style="max-width: 100px;padding-left: 0px;padding-right: 0px;">
                     <div class="dropdown" id="drop-operation">
                         <button class="btn btn-primary dropdown-toggle" id= 'mathDropdown'data-toggle="dropdown" aria-expanded="false" style="height: 50px;width: 50px;"></button>
+
                         <div class="dropdown-menu" role="menu">
                             <a class="dropdown-item" role="presentation" data-action="+" id="option2" data-parent="mathDropdown">+</a>
                             <a class="dropdown-item" role="presentation" data-action="-" id="option2" data-parent="mathDropdown">-</a>
@@ -156,22 +157,24 @@
 
 
 
-<div class="container d-lg-flex justify-content-center" id="script-preview" style="height: 50px;min-width: 700px;margin-top: 40px;max-width: 700px;min-height: 300px;max-height: 300px;background-color: rgb(33,33,33);padding: 20px;overflow-y: scroll;">
+<div class="container d-lg-flex justify-content-center" id="scriptPreview" style="height: 50px;min-width: 700px;margin-top: 40px;max-width: 700px;min-height: 300px;max-height: 300px;background-color: rgb(33,33,33);padding: 20px;overflow-y: scroll;">
     <div>
-        <div class="border rounded shadow d-lg-flex justify-content-lg-end align-items-lg-center" style="width: 660px;background-color: rgb(225,223,230);border-radius: 1.8rem!important;height: 50px;padding-left: 25px;padding-right: 20px;margin-bottom: 10px;"><label class="text-monospace d-lg-flex align-items-lg-center" style="min-width: 500px;margin-right: 30px;margin-top: 7px;">ANIMATION&nbsp;<strong>FrustratedByFailureMajor</strong></label><button class="btn btn-primary d-lg-flex" data-bs-hover-animate="pulse"
-                id="delete" type="button" style="background-color: #C95546;border-color: #C95546;">Delete</button></div>
-        <div class="border rounded shadow d-lg-flex justify-content-lg-end align-items-lg-center" style="width: 660px;background-color: rgb(225,223,230);border-radius: 1.8rem!important;height: 50px;padding-left: 25px;padding-right: 20px;margin-bottom: 10px;"><label class="text-monospace d-lg-flex align-items-lg-center" style="min-width: 500px;margin-right: 30px;margin-top: 7px;">ANIMATION&nbsp;<strong>FrustratedByFailureMajor</strong></label><button class="btn btn-primary d-lg-flex" data-bs-hover-animate="pulse"
-                id="delete" type="button" style="background-color: #C95546;border-color: #C95546;">Delete</button></div>
-        <div class="border rounded shadow d-lg-flex justify-content-lg-end align-items-lg-center" style="width: 660px;background-color: rgb(225,223,230);border-radius: 1.8rem!important;height: 50px;padding-left: 25px;padding-right: 20px;margin-bottom: 10px;"><label class="text-monospace d-lg-flex align-items-lg-center" style="min-width: 500px;margin-right: 30px;margin-top: 7px;">ANIMATION&nbsp;<strong>FrustratedByFailureMajor</strong></label><button class="btn btn-primary d-lg-flex" data-bs-hover-animate="pulse"
-                id="delete" type="button" style="background-color: #C95546;border-color: #C95546;">Delete</button></div>
-        <div class="border rounded shadow d-lg-flex justify-content-lg-end align-items-lg-center" style="width: 660px;background-color: rgb(225,223,230);border-radius: 1.8rem!important;height: 50px;padding-left: 25px;padding-right: 20px;margin-bottom: 10px;"><label class="text-monospace d-lg-flex align-items-lg-center" style="min-width: 500px;margin-right: 30px;margin-top: 7px;">ANIMATION&nbsp;<strong>FrustratedByFailureMajor</strong></label><button class="btn btn-primary d-lg-flex" data-bs-hover-animate="pulse"
-                id="delete" type="button" style="background-color: #C95546;border-color: #C95546;">Delete</button></div>
-        <div class="border rounded shadow d-lg-flex justify-content-lg-end align-items-lg-center" style="width: 660px;background-color: rgb(225,223,230);border-radius: 1.8rem!important;height: 50px;padding-left: 25px;padding-right: 20px;margin-bottom: 10px;"><label class="text-monospace d-lg-flex align-items-lg-center" style="min-width: 500px;margin-right: 30px;margin-top: 7px;">ANIMATION&nbsp;<strong>FrustratedByFailureMajor</strong></label><button class="btn btn-primary d-lg-flex" data-bs-hover-animate="pulse"
-                id="delete" type="button" style="background-color: #C95546;border-color: #C95546;">Delete</button></div>
-        <div class="border rounded shadow d-lg-flex justify-content-lg-end align-items-lg-center" style="width: 660px;background-color: rgb(225,223,230);border-radius: 1.8rem!important;height: 50px;padding-left: 25px;padding-right: 20px;margin-bottom: 10px;"><label class="text-monospace d-lg-flex align-items-lg-center" style="min-width: 500px;margin-right: 30px;margin-top: 7px;">ANIMATION&nbsp;<strong>FrustratedByFailureMajor</strong></label><button class="btn btn-primary d-lg-flex" data-bs-hover-animate="pulse"
-                id="delete" type="button" style="background-color: #C95546;border-color: #C95546;">Delete</button></div>
+
+        <script id="scriptTemplate" type="text/x-handlebars-template">
+            \{{#each commandos}}
+            <div class="border rounded shadow d-lg-flex justify-content-lg-end align-items-lg-center" style="width: 660px;background-color: rgb(225,223,230);border-radius: 1.8rem!important;height: 50px;padding-left: 25px;padding-right: 20px;margin-bottom: 10px;">
+                <label class="text-monospace d-lg-flex align-items-lg-center" style="min-width: 500px;margin-right: 30px;margin-top: 7px;"> \{{this}}</label>
+                <button class="btn btn-primary d-lg-flex" data-bs-hover-animate="pulse"id="delete" type="button" style="background-color: #C95546;border-color: #C95546;">Delete</button>
+            </div>
+            \{{/each}}
+
+        </script>
+
     </div>
 </div>
-<div class="container" id="buttons" style="width: 350px;padding: 0;margin-top: 40px;"><button class="btn btn-primary" data-bs-hover-animate="pulse" id="btn-clear" type="button" style="background-color: #C95546;border-color: #C95546;width: 150px;height: 50px;">Clear</button><button class="btn btn-primary" data-bs-hover-animate="pulse"
-        id="btn-execute" type="button" style="background-color: #32965D;border-color: #32965D;width: 150px;height: 50px;margin-left: 20px;">Execute</button></div>
+
+<div class="container" id="buttons" style="width: 350px;padding: 0;margin-top: 40px;">
+    <button class="btn btn-primary" data-bs-hover-animate="pulse" id="btn-clear" type="button" style="background-color: #C95546;border-color: #C95546;width: 150px;height: 50px;">Clear</button>
+    <button class="btn btn-primary" data-bs-hover-animate="pulse" id="btn-execute" type="button" style="background-color: #32965D;border-color: #32965D;width: 150px;height: 50px;margin-left: 20px;">Execute</button>
+</div>
 
