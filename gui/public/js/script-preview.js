@@ -104,8 +104,15 @@ $(document).ready(function(){
     });
 
     $(document).on('click', '#btn-execute',function(event){
-        var commandsText = JSON.stringify(commands)
-        console.log(commandsText)
+        var currentdate=new Date()
+        commands.request_timestamp= currentdate.getDate() + "/"
+                                + (currentdate.getMonth()+1)  + "/" 
+                                + currentdate.getFullYear() + " @ "  
+                                + currentdate.getHours() + ":"  
+                                + currentdate.getMinutes() + ":" 
+                                + currentdate.getSeconds();
+        console.log(commands.request_timestamp)
+        console.log(JSON.stringify(commands))
         $.ajax({
             url: 'http://lex:5000/lex/',
             type: "post",
