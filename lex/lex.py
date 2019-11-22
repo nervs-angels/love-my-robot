@@ -42,6 +42,73 @@ transpiled_module = importlib.import_module('.' + state.ts_file, package='transp
 cozmo.run_program(transpiled_module.program_test())
 
 
+def preprocess(request_body):
+    preprocess_ts(request_body)
+    preprocess_procedure(request_body)
+
+
+def preprocess_ts(request_body):
+    pass
+
+
+def preprocess_procedure(request_body):
+    pass
+
+
+def process():
+    text = transpile(state.procedure)
+    export(text)
+
+
+def transpile(procedure_array):
+    text = ""
+    text += "import cozmo\n\n\ndef program(robot: cozmo.robot.Robot):"
+    for command in procedure_array:
+        if command == "SAY":
+            pass
+        elif command == "MATH":
+            pass
+        elif command == "COUNT":
+            pass
+        elif command == "YES":
+            pass
+        elif command == "SOUND":
+            pass
+        elif command == "DRIVE_OFF":
+            pass
+        elif command == "MOVE":
+            pass
+        elif command == "TURN":
+            pass
+        elif command == "LIFT":
+            pass
+        elif command == "LIGHTS":
+            pass
+        elif command == "ANIMATION":
+            pass
+        elif command == "CUBE_LIGHT":
+            pass
+        elif command == "PICKUP_CUBE":
+            pass
+        elif command == "DROP_CUBE":
+            pass
+        elif command == "ROLL_CUBE":
+            pass
+        elif command == "WHEELIE":
+            pass
+    text += "\n\n\ncozmo.run_program(program)"
+    return text
+
+
+def export(text):
+    pass
+
+
+def execute():
+    transpiled_module = importlib.import_module('.' + state.ts_file, package='transpiled')
+    cozmo.run_program(transpiled_module.program())
+
+
 @app.route("/")
 def root():
     # redis.incr('hits')
