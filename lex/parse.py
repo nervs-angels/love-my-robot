@@ -33,10 +33,13 @@ def filename():
     return (request_timestamp)
 
 def savefile(filename, data):
-    save_path='transpiled/'
-    completeName = os.path.join(save_path, filename) 
-    f = open(completeName,"w")
+    
+    filepath = os.path.join('/love-my-robot/lex/transpiled',filename)
+    if not os.path.exists('/love-my-robot/lex/transpiled'):
+        os.makedirs('/love-my-robot/lex/transpiled')
+    f = open(filepath, "w")
     f.write(data)
     f.close()
-    os.system(completeName)
-    
+
+savefile("hola.txt",'hola como estan')
+
