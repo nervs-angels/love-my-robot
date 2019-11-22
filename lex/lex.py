@@ -2,13 +2,18 @@ from flask import Flask, request, jsonify, abort, render_template
 import cozmo
 import inspect
 import importlib
+import json
+import os.path
+import os
 
 # from redis import Redis
 
 
 app = Flask(__name__)
 app.static_folder = 'static'
-app.template_folder= 'templates'
+app.template_folder = 'templates'
+json_dummy = {"request_timestamp": "Sun Nov  3 01:42:41 CST 2019",
+              "lmr": ["SAY,HI", "MOVE,50,100", "SAY,POO", "CUBE_LIGHT"]}
 
 
 class State:
@@ -23,15 +28,15 @@ class State:
 state = State()
 
 
-def foo(arg1, arg2):
-    # do something with args
-    a = arg1 + arg2
-    return a
-
-
-lines = inspect.getsource(State)
-print(lines)
-print(type(lines))
+# def foo(arg1, arg2):
+#     # do something with args
+#     a = arg1 + arg2
+#     return a
+#
+#
+# lines = inspect.getsource(State)
+# print(lines)
+# print(type(lines))
 
 
 def program(robot: cozmo.robot.Robot):
@@ -50,11 +55,35 @@ def preprocess(request_body):
 
 
 def preprocess_ts(request_body):
-    pass
+    request_timestamp = request_body['request_timestamp']
+    state.ts_display = request_timestamp
+    print('preprocess_ts\n' + state.ts_display)
+    request_timestamp = "lmr_lex" + request_timestamp + ".py"
+    request_timestamp = request_timestamp.replace("CST", "").replace(":", "-").replace(" ", '_')
+    request_timestamp = request_timestamp.replace("Sun", '').replace("Mon", '')
+    request_timestamp = request_timestamp.replace('Jan', '1').replace("Feb", "2").replace("Mar", "3").replace("Apr",
+                                                                                                              "4").replace(
+        "May", "5").replace("Jun", "6").replace("Jul", "7").replace("Aug", "8").replace("Sep", "9").replace("Oct",
+                                                                                                            "10").replace(
+        "Nov", "11").replace("Dec", "12")
+    state.ts_file = request_timestamp
+    print(state.ts_file)
 
 
 def preprocess_procedure(request_body):
-    pass
+    array = []
+    for command in request_body['lmr']:
+        array.append(command)
+
+    array2 = []
+    j = 0
+
+    for i in array:
+        request_body[j] = i.split(',')
+        array2.append(request_body[j])
+        j = j + 1
+    state.procedure = array2
+    print('preprocess_procedure\n' + str(state.procedure))
 
 
 def process():
@@ -194,7 +223,12 @@ def transpile(procedure_array):
 
 
 def export(text):
-    pass
+    filepath = os.path.join('transpiled', state.ts_file)
+    if not os.path.exists('transpiled'):
+        os.makedirs('transpiled')
+    f = open(filepath, "w")
+    f.write(text)
+    f.close()
 
 
 def execute():
@@ -203,6 +237,9 @@ def execute():
 
 
 print(transpile([['DRIVE_OFF'], ['WHEELIE'], ['ANIMATION', 'DizzyShakeStop']]))
+preprocess(json_dummy)
+process()
+execute()
 
 
 @app.route("/")
